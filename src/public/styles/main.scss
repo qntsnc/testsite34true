@@ -1,0 +1,103 @@
+// Новые переменные цветов и стилей
+$primary-color: #6c5ce7;       // Фиолетовый вместо синего
+$secondary-color: #ff7675;     // Кораллово-розовый
+$accent-color: #00b894;        // Добавлен акцентный цвет
+$text-color: #1a1a1a;          // Более насыщенный черный
+$background-color: #ffffff;     // Чистый белый фон
+$font-family: 'Inter', system-ui, sans-serif; // Современный шрифт
+$shadow-intensity: 0.15;       // Контроль интенсивности теней
+
+body {
+    font-family: $font-family;
+    color: $text-color;
+    background-color: $background-color;
+    line-height: 1.7;
+}
+
+h1 {
+    color: $primary-color;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+}
+
+.content-block {
+    padding: 2rem;
+    background: $background-color;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, $shadow-intensity);
+    margin: 1.5rem 0;
+    
+    h2 {
+        color: $secondary-color;  // Теперь использует вторичный цвет
+        margin-bottom: 1.25rem;
+        font-size: 1.75rem;
+        position: relative;
+        
+        &:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: $primary-color;
+            margin-top: 0.5rem;
+        }
+    }
+    
+    p {
+        line-height: 1.8;
+        max-width: 65ch;
+    }
+}
+
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 8%) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    
+    &:hover {
+        background: linear-gradient(135deg, $secondary-color 0%, darken($secondary-color, 8%) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.error-title {
+    font-size: 6rem;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    text-shadow: 3px 3px 0 rgba($secondary-color, 0.15);
+    font-weight: 900;
+}
+
+// Добавлены медиа-запросы для адаптивности
+@media (max-width: 768px) {
+    .content-block {
+        padding: 1.5rem;
+        border-radius: 8px;
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+    
+    .custom-button {
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .error-title {
+        font-size: 4rem;
+    }
+}
